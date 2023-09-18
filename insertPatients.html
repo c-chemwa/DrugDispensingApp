@@ -45,10 +45,28 @@
                 </div>
             </div>
 
-            <input type="submit" value="Add Patient">
-            <input type="submit" value="Cancel" onclick="location.href='signup.html'  "> 
+            <button id="registerButton" type="button">Register</button>
+            <!-- The "Move to Your Page" button will navigate to the dashboard -->
+            <button id="moveToYourPageButton" onclick="location.href='patientDash.html'">Move to Your Page</button>
+
+            <div id="notification" style="display:none;"> </div>
+            
         </form>
         <p>&copy; 2023 EasyDawa. All rights reserved.</p>
+
+        <script>
+            const registerButton = document.getElementById("registerButton");
+            registerButton.addEventListener("click", function() {
+                const notification = document.getElementById("notification");
+                notification.textContent = "You are registered successfully!";
+                notification.style.display = "block";
+
+                setTimeout(function() {
+                    notification.style.display = 'none';
+                }, 3000);
+            });
+        </script>
+    </div>
 </body>
 
 </html>

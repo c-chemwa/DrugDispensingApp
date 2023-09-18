@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <title>Sign Up</title>
     <link rel="stylesheet" href="insertSupervisors.css">
@@ -6,6 +9,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="LandingAssets/White Icon.png">
+    <style>
+        /* Define modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,10 +62,51 @@
                     <input type="password" name="PASSWORDS" required><br>
                 </div>
             </div>
-            <input type="submit" value="Add Supervisor">
+            
+            <button type="button" id="registerButton">Register</button>
+            <button type="button" id="viewYourPageButton">View Your Page</button>
+            <button type="button" id="cancelButton">Cancel</button>
+            <button type="submit" id="addSupervisorButton" style="display: none;">Add Supervisor</button>
         </form>
     </div>
     <p>&copy; 2023 EasyDawa. All rights reserved.</p>
+
+    <!-- Modal dialog for success message -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>Supervisor added successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        const registerButton = document.getElementById("registerButton");
+        const successModal = document.getElementById("successModal");
+        const viewYourPageButton = document.getElementById("viewYourPageButton");
+        const addSupervisorButton = document.getElementById("addSupervisorButton");
+        const cancelButton = document.getElementById("cancelButton");
+
+        registerButton.addEventListener("click", function () {
+            // Show the success modal
+            successModal.style.display = "block";
+
+            // Hide the modal after 3 seconds (3000 milliseconds)
+            setTimeout(function () {
+                successModal.style.display = "none";
+            }, 3000);
+
+            
+        });
+
+        viewYourPageButton.addEventListener("click", function () {
+            // Redirect to the specified page
+            location.href = 'yourpage.html';
+        });
+
+        cancelButton.addEventListener("click", function () {
+            // Redirect to the specified page
+            location.href = 'signup.html';
+        });
+    </script>
 </body>
 
 </html>
