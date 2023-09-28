@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add New Administrator</title>
+    <link rel="stylesheet" href="insertCompanies.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="LandingAssets/White Icon.png">
+    <style>
+        /* Define modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="home">
+            <a href="homepage.html"><img src="LandingAssets/Black Logo.png" alt=""></a>
+        </div>
+        <br>
+        <hr>
+        <h1>Sign Up</h1>
+        <hr>
+        <form method="post" action="insertAdmin.php">
+            <div class="content">
+                <div class="labels">
+                    <label for="ADMIN_ID">Admin ID:</label>
+                    <label for="ADMIN_NAME">Admin Name:</label>
+                    <label for="PASSWORDS">Password:</label>
+                </div>
+                <div class="inputs">
+                    <input type="text" name="ADMIN_ID" required><br>
+                    <input type="text" name="ADMIN_NAME" required><br>
+                    <input type="password" name="PASSWORDS" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                        title="Password must contain at least 8 characters, including at least one digit, one lowercase letter, and one uppercase letter."
+                        required><br>
+                </div>
+            </div>
+
+            <button type="button" id="registerButton">Register</button>
+            <button id="viewYourPageButton" onclick="location.href='adminDash.html'">View Your Page</button>
+        </form>
+    </div>
+    <p>&copy; 2023 EasyDawa. All rights reserved.</p>
+
+    <!-- Modal dialog for success message -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p>You are registered successfully!</p>
+        </div>
+    </div>
+
+    <script>
+        const registerButton = document.getElementById("registerButton");
+        const successModal = document.getElementById("successModal");
+
+        registerButton.addEventListener("click", function () {
+            // Show the success modal
+            successModal.style.display = "block";
+
+            // Hide the modal after 3 seconds (3000 milliseconds)
+            setTimeout(function () {
+                successModal.style.display = "none";
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
