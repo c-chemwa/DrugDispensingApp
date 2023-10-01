@@ -1,62 +1,26 @@
-<html>
-    <head>
-    <title>Patients</title>
-        <link rel="stylesheet" href="display.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-</html>
-
 <?php
 require("EasyDawa.php");
 
-// Fetch the patient details from the database and display them in an HTML table
-$sql = "SELECT * FROM patients_info";
-$result = $conn->query($sql);
-?>
+// Fetch data from the database and format as HTML table
+$sql = "SELECT * FROM patients_info"; // Replace with your query
+$result = mysqli_query($conn, $sql);
 
-<?php if ($result->num_rows > 0) : ?>
-    <table border="1">
-        <tr>
-            <th>Patient ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Email Address</th>
-            <th>Actions</th>
-        </tr>
+echo '<table>';
+echo '<thead><tr><th>PATIENT_ID</th><th>FIRST_NAME</th><th>LAST_NAME</th><th>GENDER</th><th>AGE</th><th>EMAIL_ADDRESS</th></tr></thead>';
+echo '<tbody>';
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '<tr>';
+    echo '<td>' . $row['PATIENT_ID'] . '</td>';
+    echo '<td>' . $row['FIRST_NAME'] . '</td>';
+    echo '<td>' . $row['LAST_NAME'] . '</td>';
+    echo '<td>' . $row['GENDER'] . '</td>';
+    echo '<td>' . $row['AGE'] . '</td>';
+    echo '<td>' . $row['EMAIL_ADDRESS'] . '</td>';
+    echo '</tr>';
+}
+echo '</tbody>';
+echo '</table>';
 
-        <?php while ($row = $result->fetch_assoc()) : ?>
-            <tr>
-                <td><?php echo $row["PATIENT_ID"]; ?></td>
-                <td><?php echo $row["FIRST_NAME"]; ?></td>
-                <td><?php echo $row["LAST_NAME"]; ?></td>
-                <td><?php echo $row["GENDER"]; ?></td>
-                <td><?php echo $row["AGE"]; ?></td>
-                <td><?php echo $row["EMAIL_ADDRESS"]; ?></td>
-                <td>
-                    <form method="post" action="editPatients.php">
-                        <input type="hidden" name="PATIENT_ID" value="<?php echo $row["PATIENT_ID"]; ?>">
-                        <input type="submit" value="Edit">
-                    </form>
-                    <form method="post" action="deletePatients.php">
-                        <input type="hidden" name="PATIENT_ID" value="<?php echo $row["PATIENT_ID"]; ?>">
-                        <input type="submit" value="Delete">
-                    </form>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-
-    </table>
-
-<?php else : ?>
-    <p>No data found.</p>
-<?php endif; ?>
-<p>&copy; 2023 EasyDawa. All rights reserved.</p>
-<?php
-$conn->close();
+mysqli_close($conn);
 ?>
 

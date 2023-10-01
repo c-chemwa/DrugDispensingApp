@@ -18,10 +18,10 @@
         <hr>
         <h1>Welcome!</h1>
         <hr>
-        <form action="signup.php" method="post" autocomplete="on">
-            <label for="userType">Sign up as:</label>
+        <label for="userType" style="font-size: 25px;">Sign up as:</label>
+
             <br>
-            <select id="userType" name="userType">
+            <select id="userType" name="userType" style="font-size: 16px; border: none; outline: none;">
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
                 <option value="pharmacy">Pharmacy</option>
@@ -29,12 +29,14 @@
                 <option value="supervisor">Supervisor</option>
                 <option value="administrator">Administrator</option>
             </select>
-            <br>
+            
+            <br>            
             <br>
             <div class="buttons">
                 <input type="button" value="Sign Up" onclick="login()">
                 <br>
-                <input type="button" value="Cancel">
+                <input type="submit" value="Cancel" onclick='location.href="homepage.html" ' > 
+
             </div>
         </form>
     </div>

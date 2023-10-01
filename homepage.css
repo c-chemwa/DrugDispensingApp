@@ -1,9 +1,9 @@
 body {
     background-color: rgb(255, 115, 255);
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;
-    background: linear-gradient(transparent, rgb(121, 121, 121)), url("LandingAssets/2ndback.jpg") no-repeat center;
+    background: linear-gradient(transparent, rgb(87, 187, 207)), url("LandingAssets/Background.jpeg") repeat center;
     background-size: cover;
-    background-attachment:fixed  ;
+    background-repeat: repeat;
 }
 
 .logo {

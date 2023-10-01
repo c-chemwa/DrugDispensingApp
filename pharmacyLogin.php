@@ -1,6 +1,8 @@
 <?php
 require("EasyDawa.php");
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["PHAR_ID"]) && isset($_POST["PASSWORDS"])) {
@@ -22,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["PHAR_ID"] = $PHAR_ID;
 
             // Redirect to the pharmacy dashboard
-            header("Location: pharmacyDash.html");
+            header("Location: pharmacyDash.php");
             exit;
         } else {
             // Invalid credentials, deny access

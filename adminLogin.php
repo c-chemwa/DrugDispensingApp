@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start a new session
+
 require("EasyDawa.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,11 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->fetch()) {
             // Successful login, grant access
             // Redirect to the dashboard
-            header("Location: adminDash.html");
+            $_SESSION["ADMIN_ID"] = $ADMIN_ID; // Set the ADMIN_ID session variable
+            header("Location: adminDash.php");
             exit;
         } else {
-            // Invalid credentials, deny access
-            echo "Invalid credentials. Please try again.";
+            // Handle failed login
+            // You can display an error message here
         }
 
         // Close the statement

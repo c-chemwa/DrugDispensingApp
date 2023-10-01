@@ -1,74 +1,84 @@
-body{
-    margin: 50px;
+/* signup.css */
+
+body {
+    margin: 100px; 
     padding: 100px;
-    background-color: rgb(138, 139, 139);
+    font-family: "Roboto", "Arial", "Helvetica", sans-serif;
+    background: linear-gradient(transparent, rgb(87, 187, 207)), url("LandingAssets/Background.jpeg") no-repeat;
+    background-size: cover;
 }
 
-.form{
-    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
-    border-radius: 30px;
-    padding: 50px;
-    background-color: white;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Set minimum viewport height */
+    background-color: transparent; /* Match background color with homepage */
+    font-size: 100px; /* Adjust the font size as needed */
 }
 
-h1{
+.form {
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
+    border-radius: 20px;
+    padding: 30px;
+    background-color: transparent;
+}
+
+h1, h2 {
     text-align: center;
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;
 }
 
-h2{
-    text-align: center;
-    font-family: "Roboto", "Arial", "Helvetica", sans-serif;
-}
-
-form{
+form {
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-hr{
-    color: white;
+hr {
+    color: transparent;
 }
 
-select{
+select {
     width: 70%;
     height: 25px;
 }
 
-img{
-    height: 50px;
-    width: 250px;
-}   
+img {
+    height: auto;
+    width: 100%;
+    max-width: 250px;
+}
 
-.home{
+.home {
     justify-content: center;
 }
 
-option{
+option {
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;
 }
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row;
     width: 250px;
     justify-content: space-between;
+    color: transparent;
 }
-input{
+
+input {
     font-family: "Roboto", "Arial", "Helvetica", sans-serif;
     height: 30px;
     border-radius: 10px;
     width: 90px;
-    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .8);
 }
 
 @media screen and (max-width: 992px) {
-    
-  }
-  
+    /* Add responsive styles here if needed */
+}
 
-  @media screen and (max-width: 600px) {
-    
-  }
+@media screen and (max-width: 600px) {
+    /* Add responsive styles here if needed */
+}

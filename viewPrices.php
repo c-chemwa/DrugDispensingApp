@@ -1,11 +1,11 @@
 <?php
-// include the database connection file
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require("EasyDawa.php");
 
-// Check if the pharmacy is logged in
-// You can use session or any other authentication mechanism here
-// For example, if you are using session:
-session_start();
+
 if (!isset($_SESSION["PHAR_ID"])) {
     header("Location: pharmacyLogin.html");
     exit;

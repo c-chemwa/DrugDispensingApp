@@ -6,14 +6,23 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Check if the patient is logged in
 if (!isset($_SESSION["patient_id"])) {
-    // Redirect to the login page
     header("Location: patientLogin.html");
     exit;
 }
 
-// Fetch the doctor information from the database
+$loggedInPatientID = $_SESSION["patient_id"];
+
+// Check if the form has been submitted
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["selectedDoctors"])) {
+    // Process the form data here (save selected doctors, etc.)
+
+    // JavaScript code to display an alert after 1.5 seconds
+    echo '<script>';
+    echo 'setTimeout(function(){ alert("You have selected your doctor(s) successfully."); }, 1500);';
+    echo '</script>';
+}
+
 $sql = "SELECT DOCTORS_ID, FIRST_NAME, LAST_NAME, SPECIALITY, YRS_OF_EXPERIENCE, EMAIL_ADDRESS FROM doctors_info";
 $result = $conn->query($sql);
 
@@ -59,13 +68,9 @@ $conn->close();
 <html>
 
 <head>
-    <title>Pick Patient</title>
-    <link rel="stylesheet" href="viewPatients.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="LandingAssets/White Icon.png">
+    <title>Pick Doctor</title>
+    <!-- Include the tables.css file using PHP -->
+    <?php echo '<link rel="stylesheet" type="text/css" href="tables.css">'; ?>
 </head>
 
 <body>
@@ -80,4 +85,3 @@ $conn->close();
 </body>
 
 </html>
-

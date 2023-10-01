@@ -9,64 +9,107 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="LandingAssets/White Icon.png">
+  <style>
+    nav {
+      background-color: transparent;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: rgb(1, 12, 13);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .nav-links ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    .nav-links a:hover {
+      background-color: #0481b3;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="welcome">
-    <div class="header">
-      <div class="home">
-        <br>
-        <center><a href="homepage.html"><img src="LandingAssets/Black Logo.png" alt="" class="logo"></a></center>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="wcontent">
-        <center>
-          <h1>Welcome to Easy Dawa</h1>
-        </center>
-        <hr>
-        <p>
-          Welcome to EasyDawa - Your Trusted Health Partner!
+  <section class ="header">
+    <section class="header">
+      <nav>
+        <a href="homepage.html"><img src="LandingAssets/Black Logo.png" alt="Logo"></a>
+        <div class="nav-links">
+          <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="login.html">Log In</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#about">About Us</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="welcome">
+        <div class="header">
+          <div class="home">
+            <br>
+          </div>
           <br>
-          At EasyDawa, we believe in making healthcare accessible and convenient for everyone. <br>
-          Our mission is to revolutionize the way you access your essential medications, <br>
-          bringing a seamless and hassle-free drug dispensing experience right to your fingertips.
-        </p>
-      </div>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <main>
-      <div class="accounts">
-        <div class="signup">
-          <h2>Create an Account</h2>
           <hr>
-          <p>Sign up to access exclusive features.</p>
-          <hr>
-          <form action="signup.html" method="post">
-            <!-- Add your sign-up form fields here if needed -->
-            <button type="submit">Sign Up</button>
-          </form>
+          <br>
+          <div class="wcontent">
+            <center>
+              <h1>Welcome to Easy Dawa</h1>
+            </center>
+            <hr>
+            <p>
+              Welcome to EasyDawa - Your Trusted Health Partner!
+              <br>
+              At EasyDawa, we believe in making healthcare accessible and convenient for everyone. <br>
+              Our mission is to revolutionize the way you access your essential medications, <br>
+              bringing a seamless and hassle-free drug dispensing experience right to your fingertips.
+            </p>
+          </div>
         </div>
+        <br>
         <hr>
-        <div class="login">
-          <h2>Log In</h2>
-          <hr>
-          <p>Already have an account? Log in here.</p>
-          <hr>
-          <form action="login.html" method="post">
-            <!-- Add your login form fields here if needed -->
-            <button type="submit">Log In</button>
-          </form>
-        </div>
+        <br>
+        <main>
+          <div class="accounts">
+            <div class="signup">
+              <h2>Create an Account</h2>
+              <hr>
+              <p>Sign up to access exclusive features.</p>
+              <hr>
+              <form action="signup.html" method="post">
+                <button type="submit">Sign Up</button>
+              </form>
+            </div>
+            <hr>
+            <div class="login">
+              <h2>Log In</h2>
+              <hr>
+              <p>Already have an account? Log in here.</p>
+              <hr>
+              <form action="login.html" method="post">
+                <button type="submit">Log In</button>
+              </form>
+            </div>
+          </div>
       </div>
-  </div>
-  <hr>
-  <div class="moreinfo">
-
-    <section class="about">
+      <hr>
+      <div class="moreinfo">
+        
+      </div>
+    </section>
+    <section id="about">
       <h2>Who is Easy Dawa?</h2>
       <hr>
       <p>EasyDawa is a cutting-edge drug dispensing app designed with your well-being in mind. <br>
@@ -84,7 +127,7 @@
     <br>
     <hr>
     <br>
-    <section class="testimonials">
+    <section id="testimonials">
       <h1 class="testimo">Testimonials</h1>
       <br>
       <div class="emily">

@@ -1,9 +1,10 @@
 <?php
 require("EasyDawa.php");
-
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION["patient_id"])) {
-    header("Location: patientDash.html");
+    header("Location: patientDash.php");
     exit;
 }
 
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["patient_id"] = $patient_id;
 
             // Redirect to the patient dashboard
-            header("Location: patientDash.html");
+            header("Location: patientDash.php");
             exit;
         } else {
             // Invalid credentials, show error message
