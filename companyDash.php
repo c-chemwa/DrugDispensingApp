@@ -125,7 +125,8 @@ if (isset($_POST["add_drug"])) {
             background-color: rgb(151, 188, 185);
             padding-top: 20px;
             z-index: 2;
-            overflow-y: auto; /* Add scroll for sidebar */
+            overflow-y: auto;
+            /* Add scroll for sidebar */
         }
 
         .sidebar h1 {
@@ -171,6 +172,7 @@ if (isset($_POST["add_drug"])) {
         .add-drugs-form {
             text-align: center;
             margin-top: 20px;
+            height: 120vh;
         }
 
         /* Style for form inputs and labels */
@@ -202,6 +204,14 @@ if (isset($_POST["add_drug"])) {
         .add-drugs-form button[type="submit"]:hover {
             background-color: white;
         }
+
+        #image {
+            width: 375px;
+            height: 211px;
+            border: 1px solid black;
+            background-position: center;
+            background: no-repeat;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="tables.css">
     <link rel="icon" type="image/x-icon" href="LandingAssets/White Icon.png">
@@ -218,10 +228,10 @@ if (isset($_POST["add_drug"])) {
             <button id="viewDrugsBtn" class="btn" name="viewDrugs">View Drugs</button>
         </form>
         <!-- Log Out button with form submit -->
-       <!-- Log Out button with form submit -->
-<form action="logout.php" method="post">
-    <button class="btn" type="submit" name="logout">Log Out</button>
-</form>
+        <!-- Log Out button with form submit -->
+        <form action="logout.php" method="post">
+            <button class="btn" type="submit" name="logout">Log Out</button>
+        </form>
 
         </form>
         <div class="footer">
@@ -247,13 +257,25 @@ if (isset($_POST["add_drug"])) {
                 <!-- Add file input for drug picture here -->
                 <label for="drug_picture">Drug Picture:</label>
                 <input type="file" id="drug_picture" name="drug_picture" accept="image/*">
+                <div id="image"></div>
                 <button type="submit" name="add_drug">Add Drug</button>
             </form>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        const image_input = document.getElementById("drug_picture");
+        var uploadedimage = "";
+
+        image_input.addEventListener("change", function() {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                uploadedimage = reader.result;
+                document.getElementById("image").style.backgroundImage = `url(${uploadedimage})`;
+            })
+            reader.readAsDataURL(this.files[0]);
+        })
+        document.addEventListener('DOMContentLoaded', function() {
             const addDrugsBtn = document.getElementById('addDrugsBtn');
             const viewDrugsBtn = document.getElementById('viewDrugsBtn');
             const addDrugsForm = document.getElementById('addDrugsForm');
@@ -261,7 +283,7 @@ if (isset($_POST["add_drug"])) {
 
             function loadTable(tableType, container) {
                 const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
+                xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         container.innerHTML = xhr.responseText;
                     }
@@ -271,7 +293,7 @@ if (isset($_POST["add_drug"])) {
                 xhr.send();
             }
 
-            addDrugsBtn.addEventListener('click', function () {
+            addDrugsBtn.addEventListener('click', function() {
                 // Toggle the visibility of the add drugs form
                 if (addDrugsForm.style.display === 'none' || addDrugsForm.style.display === '') {
                     addDrugsForm.style.display = 'block';
@@ -282,13 +304,13 @@ if (isset($_POST["add_drug"])) {
                 tableContainer.innerHTML = '';
             });
 
-            viewDrugsBtn.addEventListener('click', function () {
+            viewDrugsBtn.addEventListener('click', function() {
                 // Redirect to drugImages.php when the "View Drugs" button is clicked
                 window.location.href = 'drugImages.php';
             });
         });
     </script>
+
 </body>
 
 </html>
-
